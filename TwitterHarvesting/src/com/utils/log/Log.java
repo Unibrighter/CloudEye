@@ -3,11 +3,14 @@ package com.utils.log;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import twitter4j.Logger;
+
 public final class Log {
 
     private static Log logInstance = null;
     private static SimpleDateFormat formatter = new SimpleDateFormat(
-            "HH:mm:ss.SSS");
+            "hh:mm:ss");
+    private static Logger log = Logger.getLogger(Log.class);
     private static final String OUTPUT_FORMAT = "%s [%s] %s %s%n";
     private LogType type;
 
@@ -50,6 +53,26 @@ public final class Log {
                 break;
             case LOG_OUT:
                 // TODO import log4J lib.
+                switch (op) {
+                    case WARN:
+                        log.warn(output);
+                        break;
+                    case ERROR:
+                        log.error(output);
+                        break;
+                    case DEBUG:
+                        log.debug(output);
+                        break;
+                    case INFO:
+                        log.info(output);
+                        break;
+                    case FATAL:
+                        // the log instance of the twitter4j does not have the
+                        // Fatal method, so here use error method instead of
+                        // using fatal one.
+                        log.error(output);
+                        break;
+                }
                 break;
             case FILE_OUT:
                 FileUtils.getInstance().write(output, FileUtils.OUTPUT_PATH);
