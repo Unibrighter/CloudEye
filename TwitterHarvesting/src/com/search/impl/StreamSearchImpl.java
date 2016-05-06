@@ -3,10 +3,12 @@ package com.search.impl;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.config.Key;
-import com.config.Tweets;
+import com.beans.Tweets;
 import com.search.BaseStatusListener;
 import com.search.Search;
+import com.tag.HashTag;
+import com.tag.Key;
+import com.tag.TopicTag;
 import com.utils.UtilHelper;
 import com.utils.log.Log;
 
@@ -19,21 +21,25 @@ public final class StreamSearchImpl implements Search {
 
     private static final Log log = Log.getInstance();
 
-    public List<Tweets> search(String[] key) {
-        return this.search(key, -1, null, null, null, Key.EN);
+    private TopicTag topic;
+    private double[][] area;
+
+    public StreamSearchImpl(TopicTag topic, double[][] area) {
+        this.topic = topic;
+        this.area = area;
     }
 
-    public List<Tweets> search(String[] key, int count, String sinceDate) {
-        return this.search(key, count, sinceDate, null, null, Key.EN);
+    public List<Tweets> search(int count, String sinceDate) {
+        return this.search(count, sinceDate, null, Key.EN);
     }
 
-    public List<Tweets> search(String[] key, int count) {
-        return this.search(key, count, null, null, null, Key.EN);
+    public List<Tweets> search(int count) {
+        return this.search(count, null, null, Key.EN);
     }
 
     @Override
-    public List<Tweets> search(final String[] key, int count, String sinceDate,
-            String endDate, double[][] locations, String[] lang) {
+    public List<Tweets> search(int count, String sinceDate, String endDate,
+            String[] lang) {
         final TwitterStream twitterStream = new TwitterStreamFactory(
                 UtilHelper.getConfig(true)).getInstance();
         final List<Tweets> infos = new ArrayList<Tweets>();
@@ -42,7 +48,7 @@ public final class StreamSearchImpl implements Search {
 
             @Override
             public void onStatus(Status status) {
-                
+
                 infos.add(UtilHelper.convertStatus(status));
 
                 if (infos.size() >= all) {
@@ -55,8 +61,8 @@ public final class StreamSearchImpl implements Search {
         });
         FilterQuery query = new FilterQuery();
         query.count(0);
-        query.track(key);
-        query.locations(locations);
+        query.track(HashTag.getTopic(topic));
+        query.locations(area);
         query.language(lang);
         twitterStream.filter(query);
         synchronized (infos) {

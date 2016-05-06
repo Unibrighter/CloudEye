@@ -1,4 +1,4 @@
-package com.utils.log;
+package com.utils;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -16,9 +16,9 @@ import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVPrinter;
 import org.apache.commons.csv.CSVRecord;
 
-import com.config.Tweets;
-import com.utils.UtilHelper;
+import com.beans.Tweets;
 
+import sun.swing.plaf.synth.DefaultSynthStyle.StateInfo;
 import twitter4j.Status;
 import twitter4j.TwitterObjectFactory;
 
@@ -26,11 +26,13 @@ public class FileUtils {
 
     public static final String FOLDER_PATH = System.getProperty("user.home")
             + File.separator;
-    public static final String OUTPUT_PATH = FOLDER_PATH + "logs.txt";
-    public static final String TWEETS_PATH = FOLDER_PATH + "tweets.csv";
+    public static final String FILE_LOG_PATH = FOLDER_PATH + "logs.txt";
+    public static final String FILE_TWEETS_PATH = FOLDER_PATH + "tweets.csv";
+    public static final String FILE_CLASSIFIER = "classifier.txt";
     public static final String NEW_LINE = "\n";
     public static final String SPLIT = ",";
-    private static final String FILE_FORMAT = "UTF-8";
+    public static final String FILE_FORMAT = "UTF-8";
+    private static final String HEADER = "id";
     private static int buffedSize = 1024;
     private static FileUtils instance;
 
@@ -124,13 +126,14 @@ public class FileUtils {
             br = new BufferedReader(new InputStreamReader(
                     new FileInputStream(path), FILE_FORMAT), buffedSize);
             csv = new CSVParser(br, CSVFormat.DEFAULT);
-            List<CSVRecord> records = csv.getRecords();
             // skip the header.
-            for (int i = 1; i < records.size(); i++) {
-                String json = records.get(i).get(records.size() - 1);
-                Status status = (Status) TwitterObjectFactory
-                        .createObject(json.toString());
-                list.add(UtilHelper.convertStatus(status));
+            for (CSVRecord record : csv) {
+                if (!HEADER.equals(record.get(0))) {
+                    String json = record.get(record.size() - 1);
+                    Status status = (Status) TwitterObjectFactory
+                            .createObject(json.toString());
+                    list.add(UtilHelper.convertStatus(status));
+                }
             }
         }
         catch (Exception e) {

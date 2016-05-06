@@ -2,16 +2,14 @@ package com.search;
 
 import java.util.List;
 
-import com.config.Tweets;
+import com.beans.Tweets;
 
 public interface Search {
 
-    public List<Tweets> search(String[] key);
+    public List<Tweets> search(int count, String sinceDate);
 
-    public List<Tweets> search(String[] key, int count, String sinceDate);
+    public List<Tweets> search(int count);
 
-    public List<Tweets> search(String[] key, int count);
-
-    public List<Tweets> search(String[] key, int count, String sinceDate,
-            String endDate, double[][] locations, String[] lang);
+    public List<Tweets> search(int count, String sinceDate, String endDate,
+            String[] lang);
 }

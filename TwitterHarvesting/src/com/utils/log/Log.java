@@ -3,6 +3,8 @@ package com.utils.log;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import com.utils.FileUtils;
+
 import twitter4j.Logger;
 
 public final class Log {
@@ -75,7 +77,7 @@ public final class Log {
                 }
                 break;
             case FILE_OUT:
-                FileUtils.getInstance().write(output, FileUtils.OUTPUT_PATH);
+                FileUtils.getInstance().write(output, FileUtils.FILE_LOG_PATH);
                 break;
             case NON_DEBUG:
                 // do nothing.

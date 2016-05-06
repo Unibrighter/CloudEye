@@ -1,4 +1,4 @@
-package com.config;
+package com.tag;
 
 public class Key {
 
@@ -9,6 +9,10 @@ public class Key {
             "HIIT", "running", "yoga", "jogging", "Nike+" };
     public final static String[] PRODUCT = { "Nike", "Adidas", "Puma",
             "New Balance", "Skechers" };
+    public final static String[] CAR = {};
+    public final static String[] RELIGION = {};
+    public final static String[] TRANSPORT = {};
+    public final static String[] CAFE = {};
 
     /* 4 main areas */
     public final static double[][] EAST = { { 145.0221, -38.0070 },

@@ -1,7 +1,9 @@
-package com.config;
+package com.beans;
 
 import java.util.Date;
 
+import com.tag.SentimentTag;
+import com.tag.TopicTag;
 import com.utils.UtilHelper;
 
 import twitter4j.GeoLocation;
@@ -9,17 +11,30 @@ import twitter4j.Place;
 
 public class Tweets {
 
-    private static final String FORMAT_OUTPUT = "id: %d, text: %s, date: %s, lang: %s, place: %s, geo: %s, userid: %d";
+    private static final String FORMAT_OUTPUT = "{location: %s} {geo: %s} {place: %s} {id: %d} {text: %s} "
+            + "{date: %s} {lang: %s} {userid: %d}";
 
     private long id;
     private String content;
     private String date;
     private String device;
     private String lang;
+    private String location;
     private Place place;
     private GeoLocation geo;
     private long userID;
     private String json;
+    private TopicTag topic;
+    private SentimentTag sentiment;
+
+    public String getLocation() {
+        return location;
+    }
+
+    public Tweets setLocation(String location) {
+        this.location = location;
+        return this;
+    }
 
     public String getDevice() {
         return device;
@@ -104,7 +119,23 @@ public class Tweets {
 
     @Override
     public String toString() {
-        return String.format(FORMAT_OUTPUT, id, content, date, lang,
-                UtilHelper.toString(place), UtilHelper.toString(geo), userID);
+        return String.format(FORMAT_OUTPUT, location, UtilHelper.toString(geo),
+                UtilHelper.toString(place), id, content, date, lang, userID);
+    }
+
+    public TopicTag getTopic() {
+        return topic;
+    }
+
+    public void setTopic(TopicTag topic) {
+        this.topic = topic;
+    }
+
+    public SentimentTag getSentiment() {
+        return sentiment;
+    }
+
+    public void setSentiment(SentimentTag sentiment) {
+        this.sentiment = sentiment;
     }
 }

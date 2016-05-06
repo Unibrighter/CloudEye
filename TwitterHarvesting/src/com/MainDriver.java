@@ -2,36 +2,50 @@ package com;
 
 import java.util.List;
 
-import com.config.Key;
-import com.config.Tweets;
+import com.beans.Tweets;
 import com.search.Search;
 import com.search.impl.StreamSearchImpl;
-import com.sun.org.apache.xml.internal.resolver.helpers.FileURL;
-import com.utils.log.FileUtils;
+import com.tag.Key;
+import com.tag.TopicTag;
+import com.utils.FileUtils;
 import com.utils.log.Log;
 
 import twitter4j.Status;
+import twitter4j.Twitter;
 import twitter4j.TwitterException;
-import twitter4j.TwitterObjectFactory;
+import twitter4j.TwitterFactory;
 
 public class MainDriver {
 
     private static final Log log = Log.getInstance();
-    private static final int COUNT = 2;
+    private static final int COUNT = 5;
 
     public static void main(String[] args) throws TwitterException {
-        // Post a status onto twitter.
-        // Twitter twitter = TwitterFactory.getSingleton();
-        // String message = "AAAA test request.";
-        // Status status = twitter.updateStatus(message);
-        // log.debug("Successfully updated status to " + status.getText());
+        search();
+        printAll();
+    }
 
-        Search search = new StreamSearchImpl();
-        List<Tweets> list = search.search(new String[] { "Nike" }, COUNT, null,
-                null, Key.EAST, Key.EN);
+    public static void search() {
+        Search search = new StreamSearchImpl(TopicTag.Sport, Key.INNER);
+        List<Tweets> list = search.search(COUNT);
 
-        FileUtils.getInstance().writeTweets(list, FileUtils.TWEETS_PATH);
+        FileUtils.getInstance().writeTweets(list, FileUtils.FILE_TWEETS_PATH);
+        System.out.println("finish");
+    }
 
+    public static void printAll() {
+        List<Tweets> list = FileUtils.getInstance()
+                .readCSV(FileUtils.FILE_TWEETS_PATH);
+        for (Tweets t : list) {
+            System.out.println(t.toString());
+        }
+    }
+
+    public static void postStatus() throws TwitterException {
+        Twitter twitter = TwitterFactory.getSingleton();
+        String message = "how r u";
+        Status status = twitter.updateStatus(message);
+        log.debug("Successfully updated status to " + status.getText());
     }
 
 }
