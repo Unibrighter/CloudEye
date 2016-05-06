@@ -17,7 +17,7 @@ import twitter4j.TwitterObjectFactory;
 public class MainDriver {
 
     private static final Log log = Log.getInstance();
-    private static final int COUNT = 5;
+    private static final int COUNT = 2;
 
     public static void main(String[] args) throws TwitterException {
         // Post a status onto twitter.
@@ -30,21 +30,8 @@ public class MainDriver {
         List<Tweets> list = search.search(new String[] { "Nike" }, COUNT, null,
                 null, Key.EAST, Key.EN);
 
-//        FileUtils.getInstance().writeTweets(list, FileUtils.TWEETS_PATH);
-        
-        // String sr = null;
-        // for (Tweets t : list) {
-        // sr = t.getJson();
-        // System.out.println(t.toString());
-        // }
-        //
-        // Object o = TwitterObjectFactory.createObject(sr);
-        // Status s = null;
-        // if (o instanceof Status) {
-        // s = (Status) o;
-        // }
-        //
-        // System.out.println(s.toString());
+        FileUtils.getInstance().writeTweets(list, FileUtils.TWEETS_PATH);
+
     }
 
 }

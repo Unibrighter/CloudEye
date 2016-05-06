@@ -12,7 +12,6 @@ import com.utils.log.Log;
 
 import twitter4j.FilterQuery;
 import twitter4j.Status;
-import twitter4j.TwitterObjectFactory;
 import twitter4j.TwitterStream;
 import twitter4j.TwitterStreamFactory;
 
@@ -43,18 +42,8 @@ public final class StreamSearchImpl implements Search {
 
             @Override
             public void onStatus(Status status) {
-                Tweets info = new Tweets();
-                info.setId(status.getId());
-                info.setContent(status.getText());
-                info.setDate(status.getCreatedAt());
-                info.setDevice(status.getSource());
-                info.setGeo(status.getGeoLocation());
-                info.setUserID(status.getUser().getId());
-                info.setLang(status.getLang());
-                info.setPlace(status.getPlace());
-                info.setJson(TwitterObjectFactory.getRawJSON(status));
-
-                infos.add(info);
+                
+                infos.add(UtilHelper.convertStatus(status));
 
                 if (infos.size() >= all) {
                     twitterStream.shutdown();

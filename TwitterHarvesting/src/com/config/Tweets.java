@@ -25,72 +25,81 @@ public class Tweets {
         return device;
     }
 
-    public void setDevice(String device) {
+    public Tweets setDevice(String device) {
         this.device = device;
+        return this;
     }
 
     public long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public Tweets setId(long id) {
         this.id = id;
+        return this;
     }
 
     public String getContent() {
         return content;
     }
 
-    public void setContent(String content) {
+    public Tweets setContent(String content) {
         this.content = content;
+        return this;
     }
 
     public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public Tweets setDate(Date date) {
         this.date = UtilHelper.dateFormat(date);
+        return this;
     }
 
     public String getLang() {
         return lang;
     }
 
-    public void setLang(String lang) {
+    public Tweets setLang(String lang) {
         this.lang = lang;
+        return this;
     }
 
     public Place getPlace() {
         return place;
     }
 
-    public void setPlace(Place place) {
+    public Tweets setPlace(Place place) {
         this.place = place;
+        return this;
     }
 
     public GeoLocation getGeo() {
         return geo;
     }
 
-    public void setGeo(GeoLocation geo) {
+    public Tweets setGeo(GeoLocation geo) {
         this.geo = geo;
+        return this;
     }
 
     public long getUserID() {
         return userID;
     }
 
-    public void setUserID(long userID) {
+    public Tweets setUserID(long userID) {
         this.userID = userID;
+        return this;
     }
 
     public String getJson() {
         return json;
     }
 
-    public void setJson(String json) {
+    public Tweets setJson(String json) {
         this.json = json;
+        return this;
     }
 
     @Override

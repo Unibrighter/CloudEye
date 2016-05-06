@@ -6,6 +6,10 @@ import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import com.config.Tweets;
+
+import twitter4j.Status;
+import twitter4j.TwitterObjectFactory;
 import twitter4j.conf.Configuration;
 import twitter4j.conf.ConfigurationBuilder;
 
@@ -47,6 +51,18 @@ public class UtilHelper {
             return false;
         }
         return true;
+    }
+
+    public static Tweets convertStatus(Status status) {
+        if (status == null) {
+            return null;
+        }
+        return new Tweets().setId(status.getId()).setContent(status.getText())
+                .setDate(status.getCreatedAt()).setDevice(status.getSource())
+                .setGeo(status.getGeoLocation())
+                .setUserID(status.getUser().getId()).setLang(status.getLang())
+                .setPlace(status.getPlace())
+                .setJson(TwitterObjectFactory.getRawJSON(status));
     }
 
     /**

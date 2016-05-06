@@ -8,12 +8,19 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.ArrayList;
 import java.util.List;
+
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVParser;
+import org.apache.commons.csv.CSVPrinter;
+import org.apache.commons.csv.CSVRecord;
 
 import com.config.Tweets;
 import com.utils.UtilHelper;
 
-import sun.swing.plaf.synth.DefaultSynthStyle.StateInfo;
+import twitter4j.Status;
+import twitter4j.TwitterObjectFactory;
 
 public class FileUtils {
 
@@ -68,21 +75,23 @@ public class FileUtils {
             return;
         }
         BufferedWriter bw = null;
+        CSVPrinter csv = null;
         try {
             bw = new BufferedWriter(new OutputStreamWriter(
                     new FileOutputStream(path, true), FILE_FORMAT), buffedSize);
-            StringBuilder sb = new StringBuilder();
-            for (Tweets te : list) {
-                sb.append(te.getId() + SPLIT + te.getDate() + SPLIT
-                        + te.getContent() + SPLIT + te.getLang() + SPLIT
-                        + te.getUserID() + SPLIT + te.getLang() + SPLIT
-                        + UtilHelper.toString(te.getPlace()) + SPLIT
-                        + UtilHelper.toString(te.getGeo()) + SPLIT
-                        + te.getDevice() + SPLIT + te.getJson());
-                sb.append(NEW_LINE);
+            csv = new CSVPrinter(bw, CSVFormat.DEFAULT);
+            // add header
+            String[] header = new String[] { "id", "content", "JSON" };
+            for (String s : header) {
+                csv.print(s);
             }
-            bw.write(sb.toString());
-            bw.flush();
+            csv.println();
+            for (Tweets te : list) {
+                csv.print(te.getId());
+                csv.print(te.getContent());
+                csv.print(te.getJson());
+                csv.println();
+            }
         }
         catch (Exception e) {
             e.printStackTrace();
@@ -96,7 +105,56 @@ public class FileUtils {
                     e.printStackTrace();
                 }
             }
+            if (csv != null) {
+                try {
+                    csv.close();
+                }
+                catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
         }
+    }
+
+    public synchronized List<Tweets> readCSV(String path) {
+        List<Tweets> list = new ArrayList<>();
+        BufferedReader br = null;
+        CSVParser csv = null;
+        try {
+            br = new BufferedReader(new InputStreamReader(
+                    new FileInputStream(path), FILE_FORMAT), buffedSize);
+            csv = new CSVParser(br, CSVFormat.DEFAULT);
+            List<CSVRecord> records = csv.getRecords();
+            // skip the header.
+            for (int i = 1; i < records.size(); i++) {
+                String json = records.get(i).get(records.size() - 1);
+                Status status = (Status) TwitterObjectFactory
+                        .createObject(json.toString());
+                list.add(UtilHelper.convertStatus(status));
+            }
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        finally {
+            if (br != null) {
+                try {
+                    br.close();
+                }
+                catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (csv != null) {
+                try {
+                    csv.close();
+                }
+                catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return list;
     }
 
     /**
