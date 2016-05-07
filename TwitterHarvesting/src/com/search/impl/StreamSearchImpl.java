@@ -51,8 +51,8 @@ public final class StreamSearchImpl implements Search {
         final TwitterStream twitterStream = new TwitterStreamFactory(
                 UtilHelper.getConfig(true)).getInstance();
         final List<Tweets> infos = new ArrayList<Tweets>();
-        final int cacheSize = Math.max(count, MAX_FILE_SIZE);
-        final int maxSize = Math.min(cacheSize, MAX_COUNT);
+        final int cacheSize = Math.min(count, MAX_FILE_SIZE);
+        final int maxSize = Math.max(cacheSize, MAX_COUNT);
         twitterStream.addListener(new BaseStatusListener() {
 
             @Override
