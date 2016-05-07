@@ -17,7 +17,6 @@ import twitter4j.TwitterFactory;
 public class MainDriver {
 
     private static final Log log = Log.getInstance();
-    private static final int COUNT = 1;
 
     public static void main(String[] args) throws TwitterException {
         search();
@@ -27,14 +26,14 @@ public class MainDriver {
     public static void search() {
         Search search = new StreamSearchImpl(Key.INNER);
         List<Tweets> list = search.search(StreamSearchImpl.MAX_COUNT);
-        System.out.println("finish");
+        log.info("finish");
     }
 
     public static void printAll() {
         List<Tweets> list = FileUtils.getInstance()
                 .readCSV(FileUtils.FILE_TWEETS_PATH);
         for (Tweets t : list) {
-            System.out.println(t.toString());
+            log.info(t.toString());
         }
     }
 

@@ -2,6 +2,7 @@ package com.beans;
 
 import java.util.Date;
 
+import com.tag.AreaTag;
 import com.tag.SentimentTag;
 import com.tag.TopicTag;
 import com.utils.UtilHelper;
@@ -9,7 +10,7 @@ import com.utils.UtilHelper;
 import twitter4j.GeoLocation;
 import twitter4j.Place;
 
-public class Tweets {
+public final class Tweets {
 
     private static final String FORMAT_OUTPUT = "{location: %s} {geo: %s} {place: %s} {id: %d} {text: %s} "
             + "{date: %s} {lang: %s} {userid: %d}";
@@ -26,6 +27,16 @@ public class Tweets {
     private String json;
     private TopicTag topic;
     private SentimentTag sentiment;
+    private AreaTag are;
+
+    public AreaTag getAre() {
+        return are;
+    }
+
+    public Tweets setAre(AreaTag are) {
+        this.are = are;
+        return this;
+    }
 
     public String getLocation() {
         return location;

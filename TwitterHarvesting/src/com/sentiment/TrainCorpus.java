@@ -15,6 +15,7 @@ import com.utils.FileUtils;
 
 public class TrainCorpus {
 
+    @SuppressWarnings({ "rawtypes", "unchecked" })
     public static void train() throws IOException, ClassNotFoundException {
         File trainDir;
         String[] categories;

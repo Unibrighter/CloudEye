@@ -62,7 +62,7 @@ public final class StreamSearchImpl implements Search {
                     FileUtils.getInstance().writeTweets(infos,
                             FileUtils.FILE_TWEETS_PATH);
                     allSize += infos.size();
-                    System.out.println("get tweets size: " + allSize);
+                    log.info("get tweets size: " + allSize);
                     infos.clear();
                 }
 
