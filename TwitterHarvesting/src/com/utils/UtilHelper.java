@@ -12,11 +12,27 @@ import twitter4j.conf.Configuration;
 import twitter4j.conf.ConfigurationBuilder;
 
 public class UtilHelper {
-
-    private static final String consumerSecret = "DPi2ixuchm4qYoy0NL02IY0qRs13Drgzy0G41KShsioYeOaOZM";
-    private static final String consumerKey = "GAPDFACAdNSRTkJiCwcLn59kR";
-    private static final String accessToken = "728264517315002368-PZDXJOmE2wXVjWVHCPxS9UUWdmxUlTI";
-    private static final String accessTokenSecret = "VSKthKSYbqPQ7Zl9jETvU9TU3ieGTYax3gEZaCaRsjtw6";
+    /* Harvesting 1 */
+    private static final String consumerSecret = "IkoXSddjZHDuzdpgToiRPbi4di12iTptRevHwDLGDdjkKmoXJZ";
+    private static final String consumerKey = "OljCaeSTjxIYxPW01xG1eDuEv";
+    private static final String accessToken = "4035327626-POQsYQEyFccE7ptVoGG5eX36h3ftGcJrC0TfvB3";
+    private static final String accessTokenSecret = "pnyiNTsGGQJbfI5Xjj6WUaFEhGGBicosRQFNkfqERnHBR";
+    
+    /* Harvesting 2 */
+//    private static final String consumerSecret = "BPHNDOj7kOlHa1izVNkJ1oHgyvqNJurR9AgoPpCW5PvqHtwOt2";
+//    private static final String consumerKey = "wLndHBmWyRxLjoErlDNlDDUkX";
+//    private static final String accessToken = "728261638839664640-Qm46bPkAsbJmJGDPxePoiqrlTQdickx";
+//    private static final String accessTokenSecret = "0MMrlJNaGUNByLudidcy7ELv00SQU1Uu0hXig5GOS76wx";
+    /* Harvesting 3 */
+//    private static final String consumerSecret = "Zjk5urEuvMT4ipj7wD1OkKvpcCrTnfdYqvIEOOOW7IvVg4mfvY";
+//    private static final String consumerKey = "gegAKPdB0VqC0cg5kTWd6s8Qg";
+//    private static final String accessToken = "321842685-v2fLN3tyP7AQUr3AzGwGYiDGHbm1xcRuEoEyGEos";
+//    private static final String accessTokenSecret = "vpMWX4KPpt8ulPet0lcAsugKibMbgAR5FkTPx4MmOGKK4";
+    /* Harvesting 4 */
+//    private static final String consumerSecret = "DPi2ixuchm4qYoy0NL02IY0qRs13Drgzy0G41KShsioYeOaOZM";
+//    private static final String consumerKey = "GAPDFACAdNSRTkJiCwcLn59kR";
+//    private static final String accessToken = "728264517315002368-PZDXJOmE2wXVjWVHCPxS9UUWdmxUlTI";
+//    private static final String accessTokenSecret = "VSKthKSYbqPQ7Zl9jETvU9TU3ieGTYax3gEZaCaRsjtw6";
 
     public static Configuration getConfig(boolean isJSONStoreEnabled) {
         return new ConfigurationBuilder().setOAuthConsumerKey(consumerKey)
