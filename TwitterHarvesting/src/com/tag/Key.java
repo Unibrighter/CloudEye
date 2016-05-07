@@ -17,10 +17,13 @@ public class Key {
     /* 4 main areas */
     public final static double[][] EAST = { { 144.9955, -38.5181 },
             { 145.7850, -37.7218 } };
+    
     public final static double[][] NORTH = { { 144.8857, -37.7316 },
             { 145.6175, -37.2161 } };
+    
     public final static double[][] INNER = { { 144.8857, -37.8932 },
             { 145.0435, -37.7316 } };
+    
     public final static double[][] WEST = { { 144.3238, -38.0200 },
             { 144.8857, -37.1504 } };
 
