@@ -1,9 +1,7 @@
 package com.search.impl;
 
-import java.lang.invoke.VolatileCallSite;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.zip.Inflater;
 
 import com.beans.Tweets;
 import com.search.BaseStatusListener;
@@ -26,7 +24,7 @@ public final class StreamSearchImpl implements Search {
 
     private TopicTag topic;
     private double[][] area;
-    private static final int MAX_COUNT = 100000;
+    public static final int MAX_COUNT = 100000;
     private static final int MAX_FILE_SIZE = 10;
     private volatile int allSize = 0;
 
