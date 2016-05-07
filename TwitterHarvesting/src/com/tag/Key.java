@@ -15,14 +15,14 @@ public class Key {
     public final static String[] CAFE = {};
 
     /* 4 main areas */
-    public final static double[][] EAST = { { 145.0221, -38.0070 },
-            { 145.3797, -37.7461 } };
-    public final static double[][] NORTH = { { 144.8353, -37.7295 },
-            { 145.1346, -37.5536 } };
-    public final static double[][] INNER = { { 144.8889, -37.8917 },
-            { 145.0453, -37.7325 } };
-    public final static double[][] WEST = { { 144.3336, -38.0046 },
-            { 144.9165, -37.7325 } };
+    public final static double[][] EAST = { { 144.9955, -38.5181 },
+            { 145.7850, -37.7218 } };
+    public final static double[][] NORTH = { { 144.8857, -37.7316 },
+            { 145.6175, -37.2161 } };
+    public final static double[][] INNER = { { 144.8857, -37.8932 },
+            { 145.0435, -37.7316 } };
+    public final static double[][] WEST = { { 144.3238, -38.0200 },
+            { 144.8857, -37.1504 } };
 
     /* Different language */
     public final static String[] EN = { "en" };

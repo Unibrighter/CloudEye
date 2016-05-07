@@ -1,7 +1,9 @@
 package com.search.impl;
 
+import java.lang.invoke.VolatileCallSite;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.zip.Inflater;
 
 import com.beans.Tweets;
 import com.search.BaseStatusListener;
@@ -9,6 +11,7 @@ import com.search.Search;
 import com.tag.HashTag;
 import com.tag.Key;
 import com.tag.TopicTag;
+import com.utils.FileUtils;
 import com.utils.UtilHelper;
 import com.utils.log.Log;
 
@@ -23,6 +26,13 @@ public final class StreamSearchImpl implements Search {
 
     private TopicTag topic;
     private double[][] area;
+    private static final int MAX_COUNT = 100000;
+    private static final int MAX_FILE_SIZE = 10;
+    private volatile int allSize = 0;
+
+    public StreamSearchImpl(double[][] area) {
+        this(null, area);
+    }
 
     public StreamSearchImpl(TopicTag topic, double[][] area) {
         this.topic = topic;
@@ -43,15 +53,22 @@ public final class StreamSearchImpl implements Search {
         final TwitterStream twitterStream = new TwitterStreamFactory(
                 UtilHelper.getConfig(true)).getInstance();
         final List<Tweets> infos = new ArrayList<Tweets>();
-        final int all = (count == -1 ? 1000 : count);
+        final int cacheSize = Math.max(count, MAX_FILE_SIZE);
+        final int maxSize = Math.min(cacheSize, MAX_COUNT);
         twitterStream.addListener(new BaseStatusListener() {
 
             @Override
             public void onStatus(Status status) {
-
                 infos.add(UtilHelper.convertStatus(status));
+                if (infos.size() == cacheSize) {
+                    FileUtils.getInstance().writeTweets(infos,
+                            FileUtils.FILE_TWEETS_PATH);
+                    allSize += infos.size();
+                    System.out.println("get tweets size: " + allSize);
+                    infos.clear();
+                }
 
-                if (infos.size() >= all) {
+                if (allSize >= maxSize) {
                     twitterStream.shutdown();
                     synchronized (infos) {
                         infos.notify();

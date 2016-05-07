@@ -6,7 +6,6 @@ import com.beans.Tweets;
 import com.search.Search;
 import com.search.impl.StreamSearchImpl;
 import com.tag.Key;
-import com.tag.TopicTag;
 import com.utils.FileUtils;
 import com.utils.log.Log;
 
@@ -18,7 +17,7 @@ import twitter4j.TwitterFactory;
 public class MainDriver {
 
     private static final Log log = Log.getInstance();
-    private static final int COUNT = 5;
+    private static final int COUNT = 1;
 
     public static void main(String[] args) throws TwitterException {
         search();
@@ -26,10 +25,8 @@ public class MainDriver {
     }
 
     public static void search() {
-        Search search = new StreamSearchImpl(TopicTag.Sport, Key.INNER);
+        Search search = new StreamSearchImpl(Key.INNER);
         List<Tweets> list = search.search(COUNT);
-
-        FileUtils.getInstance().writeTweets(list, FileUtils.FILE_TWEETS_PATH);
         System.out.println("finish");
     }
 
