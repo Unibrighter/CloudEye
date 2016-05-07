@@ -27,14 +27,14 @@ public final class Tweets {
     private String json;
     private TopicTag topic;
     private SentimentTag sentiment;
-    private AreaTag are;
+    private AreaTag area;
 
-    public AreaTag getAre() {
-        return are;
+    public AreaTag getArea() {
+        return area;
     }
 
-    public Tweets setAre(AreaTag are) {
-        this.are = are;
+    public Tweets setArea(AreaTag area) {
+        this.area = area;
         return this;
     }
 

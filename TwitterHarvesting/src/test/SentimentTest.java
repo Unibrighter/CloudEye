@@ -5,7 +5,7 @@ import com.sentiment.Classifier;
 public class SentimentTest {
 
     public static void main(String[] args) {
-        String s = "i like you";
+        String s = "this is <3";
         System.out.println(Classifier.getInstance().classify(s));
     }
 

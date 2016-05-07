@@ -3,13 +3,19 @@ package com.search;
 import java.util.List;
 
 import com.beans.Tweets;
+import com.utils.log.Log;
 
-public interface Search {
+import twitter4j.TwitterException;
 
-    public List<Tweets> search(int count, String sinceDate);
+public abstract class Search {
 
-    public List<Tweets> search(int count);
+    protected static final Log log = Log.getInstance();
 
-    public List<Tweets> search(int count, String sinceDate, String endDate,
-            String[] lang);
+    public abstract List<Tweets> search(int count, String sinceDate)
+            throws TwitterException;
+
+    public abstract List<Tweets> search(int count) throws TwitterException;
+
+    public abstract List<Tweets> search(int count, String sinceDate,
+            String endDate, String[] lang) throws TwitterException;
 }

@@ -11,7 +11,7 @@ import com.aliasi.corpus.ObjectHandler;
 import com.aliasi.util.AbstractExternalizable;
 import com.aliasi.util.Compilable;
 import com.aliasi.util.Files;
-import com.utils.FileUtils;
+import com.file.FileUtils;
 
 public class TrainCorpus {
 

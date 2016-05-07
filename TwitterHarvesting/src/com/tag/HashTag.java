@@ -8,11 +8,11 @@ public class HashTag {
     private static final HashMap<String, SentimentTag> sentimentMap = new HashMap<>();
 
     static {
-        topicMap.put(TopicTag.Sport, Key.EXERCISE);
-        topicMap.put(TopicTag.Car, Key.CAR);
-        topicMap.put(TopicTag.Transport, Key.TRANSPORT);
-        topicMap.put(TopicTag.Religion, Key.RELIGION);
-        topicMap.put(TopicTag.Restaurant, Key.CAFE);
+        topicMap.put(TopicTag.Sport, Resource.EXERCISE);
+        topicMap.put(TopicTag.Car, Resource.CAR);
+        topicMap.put(TopicTag.Transport, Resource.TRANSPORT);
+        topicMap.put(TopicTag.Religion, Resource.RELIGION);
+        topicMap.put(TopicTag.Restaurant, Resource.CAFE);
 
         sentimentMap.put(SentimentTag.neg.name(), SentimentTag.neg);
         sentimentMap.put(SentimentTag.neu.name(), SentimentTag.neu);

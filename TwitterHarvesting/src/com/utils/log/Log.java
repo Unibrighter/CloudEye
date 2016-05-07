@@ -3,7 +3,7 @@ package com.utils.log;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import com.utils.FileUtils;
+import com.file.FileUtils;
 
 import twitter4j.Logger;
 

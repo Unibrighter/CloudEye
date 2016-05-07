@@ -1,4 +1,4 @@
-package com.utils;
+package com.file;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -17,8 +17,8 @@ import org.apache.commons.csv.CSVPrinter;
 import org.apache.commons.csv.CSVRecord;
 
 import com.beans.Tweets;
+import com.utils.UtilHelper;
 
-import sun.swing.plaf.synth.DefaultSynthStyle.StateInfo;
 import twitter4j.Status;
 import twitter4j.TwitterObjectFactory;
 

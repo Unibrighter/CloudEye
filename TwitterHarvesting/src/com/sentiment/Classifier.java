@@ -5,12 +5,13 @@ import java.io.IOException;
 
 import com.aliasi.classify.LMClassifier;
 import com.aliasi.util.AbstractExternalizable;
+import com.file.FileUtils;
 import com.tag.HashTag;
 import com.tag.SentimentTag;
-import com.utils.FileUtils;
 
 /**
- * The accuracy of sentiment analysis is 75% approximately.
+ * The accuracy of sentiment analysis is 75% approximately. It can also handle
+ * the emoji classification.
  *
  */
 public class Classifier {

@@ -4,45 +4,35 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.beans.Tweets;
+import com.file.FileUtils;
 import com.search.BaseStatusListener;
 import com.search.Search;
-import com.tag.HashTag;
-import com.tag.Key;
-import com.tag.TopicTag;
-import com.utils.FileUtils;
+import com.tag.Resource;
 import com.utils.UtilHelper;
-import com.utils.log.Log;
 
 import twitter4j.FilterQuery;
 import twitter4j.Status;
 import twitter4j.TwitterStream;
 import twitter4j.TwitterStreamFactory;
 
-public final class StreamSearchImpl implements Search {
+public final class StreamingImpl extends Search {
 
-    private static final Log log = Log.getInstance();
-
-    private TopicTag topic;
-    private double[][] area;
+    
     public static final int MAX_COUNT = 100000;
     private static final int MAX_FILE_SIZE = 10;
     private volatile int allSize = 0;
+    private double[][] area;
 
-    public StreamSearchImpl(double[][] area) {
-        this(null, area);
-    }
-
-    public StreamSearchImpl(TopicTag topic, double[][] area) {
-        this.topic = topic;
+    public StreamingImpl(double[][] area) {
         this.area = area;
     }
 
     public List<Tweets> search(int count, String sinceDate) {
-        return this.search(count, sinceDate, null, Key.EN);
+        return this.search(count, sinceDate, null, Resource.EN);
     }
 
     public List<Tweets> search(int count) {
-        return this.search(count, null, null, Key.EN);
+        return this.search(count, null, null, Resource.EN);
     }
 
     @Override
@@ -52,7 +42,7 @@ public final class StreamSearchImpl implements Search {
                 UtilHelper.getConfig(true)).getInstance();
         final List<Tweets> infos = new ArrayList<Tweets>();
         final int cacheSize = Math.min(count, MAX_FILE_SIZE);
-        final int maxSize = Math.max(cacheSize, MAX_COUNT);
+        final int maxSize = Math.min(count, MAX_COUNT);
         twitterStream.addListener(new BaseStatusListener() {
 
             @Override
@@ -75,8 +65,6 @@ public final class StreamSearchImpl implements Search {
             }
         });
         FilterQuery query = new FilterQuery();
-        query.count(0);
-        query.track(HashTag.getTopic(topic));
         query.locations(area);
         query.language(lang);
         twitterStream.filter(query);
