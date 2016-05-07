@@ -13,10 +13,10 @@ import twitter4j.conf.ConfigurationBuilder;
 
 public class UtilHelper {
 
-    private static final String consumerSecret = "IkoXSddjZHDuzdpgToiRPbi4di12iTptRevHwDLGDdjkKmoXJZ";
-    private static final String consumerKey = "OljCaeSTjxIYxPW01xG1eDuEv";
-    private static final String accessToken = "4035327626-POQsYQEyFccE7ptVoGG5eX36h3ftGcJrC0TfvB3";
-    private static final String accessTokenSecret = "pnyiNTsGGQJbfI5Xjj6WUaFEhGGBicosRQFNkfqERnHBR";
+    private static final String consumerSecret = "DPi2ixuchm4qYoy0NL02IY0qRs13Drgzy0G41KShsioYeOaOZM";
+    private static final String consumerKey = "GAPDFACAdNSRTkJiCwcLn59kR";
+    private static final String accessToken = "728264517315002368-PZDXJOmE2wXVjWVHCPxS9UUWdmxUlTI";
+    private static final String accessTokenSecret = "VSKthKSYbqPQ7Zl9jETvU9TU3ieGTYax3gEZaCaRsjtw6";
 
     public static Configuration getConfig(boolean isJSONStoreEnabled) {
         return new ConfigurationBuilder().setOAuthConsumerKey(consumerKey)

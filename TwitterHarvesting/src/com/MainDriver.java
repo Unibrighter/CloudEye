@@ -25,8 +25,8 @@ public class MainDriver {
     }
 
     public static void search() {
-        Search search = new StreamSearchImpl(Key.INNER);
-        List<Tweets> list = search.search(COUNT);
+        Search search = new StreamSearchImpl(Key.EAST);
+        List<Tweets> list = search.search(StreamSearchImpl.MAX_COUNT);
         System.out.println("finish");
     }
 

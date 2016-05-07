@@ -25,7 +25,7 @@ public final class StreamSearchImpl implements Search {
     private TopicTag topic;
     private double[][] area;
     public static final int MAX_COUNT = 100000;
-    private static final int MAX_FILE_SIZE = 10;
+    private static final int MAX_FILE_SIZE = 1000;
     private volatile int allSize = 0;
 
     public StreamSearchImpl(double[][] area) {
