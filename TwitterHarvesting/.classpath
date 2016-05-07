@@ -8,5 +8,7 @@
 	<classpathentry kind="lib" path="lib/twitter4j-media-support-4.0.4.jar"/>
 	<classpathentry kind="lib" path="lib/twitter4j-stream-4.0.4.jar" sourcepath="/Users/zhangyu/Downloads/lib/twitter4j-master/twitter4j-stream"/>
 	<classpathentry kind="lib" path="lib/gson-2.2.2.jar"/>
+	<classpathentry kind="lib" path="lib/commons-csv-1.2.jar"/>
+	<classpathentry kind="lib" path="lib/lingpipe-4.1.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
