@@ -5,12 +5,12 @@ import java.util.List;
 import com.beans.Tweets;
 import com.file.FileUtils;
 import com.search.Search;
-import com.search.impl.RestfulImpl;
+import com.search.impl.RestImpl;
 import com.tag.Resource;
 
 import twitter4j.TwitterException;
 
-public class RestfulTest {
+public class RestTest {
 
     public static void main(String[] args) throws TwitterException {
         // try {
@@ -31,8 +31,8 @@ public class RestfulTest {
         // System.out.println("Geo...............");
 
         // Inner
-        Search s = new RestfulImpl(Resource.REST_INNER);
-        List<Tweets> list = s.search(RestfulImpl.MAX_PER_COUNT);
+        Search s = new RestImpl(Resource.REST_INNER);
+        List<Tweets> list = s.search(RestImpl.MAX_PER_COUNT);
         FileUtils.getInstance().writeTweets(list,
                 "/Users/zhangyu/Desktop/innerGeo.csv");
     }

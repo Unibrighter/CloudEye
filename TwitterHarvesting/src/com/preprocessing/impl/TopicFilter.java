@@ -1,6 +1,6 @@
-package com.filter.impl;
+package com.preprocessing.impl;
 
-import com.filter.Filter;
+import com.preprocessing.Filter;
 
 public class TopicFilter implements Filter {
 

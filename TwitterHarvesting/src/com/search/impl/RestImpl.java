@@ -19,7 +19,7 @@ import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
 
-public final class RestfulImpl extends Search {
+public final class RestImpl extends Search {
 
     public static final int MAX_WINDOW_TIME = 15 * 60 * 1000;
     public static final int MAX_REQUEST_COUNT = 180;
@@ -33,11 +33,11 @@ public final class RestfulImpl extends Search {
     private GeoCircle geo;
     private long userId;
 
-    public RestfulImpl(long userId) {
+    public RestImpl(long userId) {
         this.userId = userId;
     }
 
-    public RestfulImpl(GeoCircle geo) {
+    public RestImpl(GeoCircle geo) {
         this.geo = geo;
     }
 
