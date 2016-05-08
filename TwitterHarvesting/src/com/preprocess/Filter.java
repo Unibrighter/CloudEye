@@ -1,4 +1,4 @@
-package com.preprocessing;
+package com.preprocess;
 
 public interface Filter {
 	

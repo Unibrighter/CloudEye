@@ -1,12 +1,12 @@
 package test;
 
-import com.sentiment.Classifier;
+import com.sentiment.SentimentClassifier;
 
 public class SentimentTest {
 
     public static void main(String[] args) {
         String s = "this is <3";
-        System.out.println(Classifier.getInstance().classify(s));
+        System.out.println(SentimentClassifier.getInstance().classify(s));
     }
 
 }

@@ -1,39 +1,21 @@
 package test;
 
-import java.util.List;
-
-import com.beans.Tweets;
-import com.file.FileUtils;
-import com.search.Search;
-import com.search.impl.RestImpl;
-import com.tag.Resource;
+import com.oath.OAthConfig;
 
 import twitter4j.TwitterException;
 
 public class RestTest {
 
     public static void main(String[] args) throws TwitterException {
-        // try {
-        // for (int i = 0; i < 200; i++) {
-        // if (i == 179) {
-        // System.out.println(i);
-        // }
-        // List<Tweets> list = new RestfulImpl(429570086)
-        // .getTimeLineOnePage(RestfulImpl.MAX_PAGE_COUNT);
-        // FileUtils.getInstance().writeTweets(list,
-        // "/Users/zhangyu/Desktop/testrate.csv");
-        // }
-        // }
-        // catch (TwitterException e) {
-        // e.printStackTrace();
-        // }
-        //
-        // System.out.println("Geo...............");
+        OAthConfig.setApplicationNum(5);
+        new TaskTest(125551669);
 
         // Inner
-        Search s = new RestImpl(Resource.REST_INNER);
-        List<Tweets> list = s.search(RestImpl.MAX_PER_COUNT);
-        FileUtils.getInstance().writeTweets(list,
-                "/Users/zhangyu/Desktop/innerGeo.csv");
+        // for (int i = 0; i < AbstractSearch.MAX_COUNT; i++) {
+        // AbstractSearch s = new RestRequestImpl(Resource.REST_INNER);
+        // List<Tweet> list = s.search(RestRequestImpl.MAX_PER_SEARCH_COUNT);
+        // FileUtils.getInstance().writeTweets(list,
+        // "/Users/zhangyu/Desktop/innerGeo3.csv");
+        // }
     }
 }

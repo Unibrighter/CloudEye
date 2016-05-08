@@ -2,6 +2,8 @@ package com.tag;
 
 import java.util.HashMap;
 
+import com.resource.Resource;
+
 public class HashTag {
 
     private static final HashMap<TopicTag, String[]> topicMap = new HashMap<>();

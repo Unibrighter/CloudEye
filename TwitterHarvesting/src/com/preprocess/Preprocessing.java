@@ -1,4 +1,4 @@
-package com.preprocessing;
+package com.preprocess;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

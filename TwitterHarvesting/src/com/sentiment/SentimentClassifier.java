@@ -14,25 +14,25 @@ import com.tag.SentimentTag;
  * the emoji classification.
  *
  */
-public class Classifier {
+public class SentimentClassifier {
 
     private String[] categories;
     @SuppressWarnings("rawtypes")
     private LMClassifier classify;
-    public static final String CLASSIFIER_PATH = Classifier.class
+    public static final String CLASSIFIER_PATH = SentimentClassifier.class
             .getResource(FileUtils.FILE_CLASSIFIER).getPath();
 
-    private static Classifier instance;
+    private static SentimentClassifier instance;
 
-    public synchronized static Classifier getInstance() {
+    public synchronized static SentimentClassifier getInstance() {
         if (instance == null) {
-            instance = new Classifier();
+            instance = new SentimentClassifier();
         }
         return instance;
     }
 
     @SuppressWarnings("rawtypes")
-    public Classifier() {
+    public SentimentClassifier() {
         try {
             classify = (LMClassifier) AbstractExternalizable
                     .readObject(new File(CLASSIFIER_PATH));

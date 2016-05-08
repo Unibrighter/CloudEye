@@ -10,7 +10,7 @@ import com.utils.UtilHelper;
 import twitter4j.GeoLocation;
 import twitter4j.Place;
 
-public final class Tweets {
+public final class Tweet {
 
     private static final String FORMAT_OUTPUT = "{location: %s} {geo: %s} {place: %s} {id: %d} {text: %s} "
             + "{date: %s} {lang: %s} {userid: %d}";
@@ -25,24 +25,12 @@ public final class Tweets {
     private GeoLocation geo;
     private long userID;
     private String json;
-    private TopicTag topic;
-    private SentimentTag sentiment;
-    private AreaTag area;
-
-    public AreaTag getArea() {
-        return area;
-    }
-
-    public Tweets setArea(AreaTag area) {
-        this.area = area;
-        return this;
-    }
 
     public String getLocation() {
         return location;
     }
 
-    public Tweets setLocation(String location) {
+    public Tweet setLocation(String location) {
         this.location = location;
         return this;
     }
@@ -51,7 +39,7 @@ public final class Tweets {
         return device;
     }
 
-    public Tweets setDevice(String device) {
+    public Tweet setDevice(String device) {
         this.device = device;
         return this;
     }
@@ -60,7 +48,7 @@ public final class Tweets {
         return id;
     }
 
-    public Tweets setId(long id) {
+    public Tweet setId(long id) {
         this.id = id;
         return this;
     }
@@ -69,7 +57,7 @@ public final class Tweets {
         return content;
     }
 
-    public Tweets setContent(String content) {
+    public Tweet setContent(String content) {
         this.content = content;
         return this;
     }
@@ -78,7 +66,7 @@ public final class Tweets {
         return date;
     }
 
-    public Tweets setDate(Date date) {
+    public Tweet setDate(Date date) {
         this.date = UtilHelper.dateFormat(date);
         return this;
     }
@@ -87,7 +75,7 @@ public final class Tweets {
         return lang;
     }
 
-    public Tweets setLang(String lang) {
+    public Tweet setLang(String lang) {
         this.lang = lang;
         return this;
     }
@@ -96,7 +84,7 @@ public final class Tweets {
         return place;
     }
 
-    public Tweets setPlace(Place place) {
+    public Tweet setPlace(Place place) {
         this.place = place;
         return this;
     }
@@ -105,7 +93,7 @@ public final class Tweets {
         return geo;
     }
 
-    public Tweets setGeo(GeoLocation geo) {
+    public Tweet setGeo(GeoLocation geo) {
         this.geo = geo;
         return this;
     }
@@ -114,7 +102,7 @@ public final class Tweets {
         return userID;
     }
 
-    public Tweets setUserID(long userID) {
+    public Tweet setUserID(long userID) {
         this.userID = userID;
         return this;
     }
@@ -123,7 +111,7 @@ public final class Tweets {
         return json;
     }
 
-    public Tweets setJson(String json) {
+    public Tweet setJson(String json) {
         this.json = json;
         return this;
     }
@@ -132,21 +120,5 @@ public final class Tweets {
     public String toString() {
         return String.format(FORMAT_OUTPUT, location, UtilHelper.toString(geo),
                 UtilHelper.toString(place), id, content, date, lang, userID);
-    }
-
-    public TopicTag getTopic() {
-        return topic;
-    }
-
-    public void setTopic(TopicTag topic) {
-        this.topic = topic;
-    }
-
-    public SentimentTag getSentiment() {
-        return sentiment;
-    }
-
-    public void setSentiment(SentimentTag sentiment) {
-        this.sentiment = sentiment;
     }
 }

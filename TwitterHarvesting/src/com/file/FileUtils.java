@@ -16,7 +16,7 @@ import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVPrinter;
 import org.apache.commons.csv.CSVRecord;
 
-import com.beans.Tweets;
+import com.beans.Tweet;
 import com.utils.UtilHelper;
 
 import twitter4j.Status;
@@ -28,6 +28,8 @@ public class FileUtils {
             + File.separator;
     public static final String FILE_LOG_PATH = FOLDER_PATH + "logs.txt";
     public static final String FILE_TWEETS_PATH = FOLDER_PATH + "tweets.csv";
+    public static final String FILE_REST_TWEETS_PATH = FOLDER_PATH
+            + "rest_tweets.csv";
     public static final String FILE_CLASSIFIER = "classifier.txt";
     public static final String NEW_LINE = "\n";
     public static final String SPLIT = ",";
@@ -72,7 +74,7 @@ public class FileUtils {
         }
     }
 
-    public synchronized void writeTweets(List<Tweets> list, String path) {
+    public synchronized void writeTweets(List<Tweet> list, String path) {
         if (list == null) {
             return;
         }
@@ -88,7 +90,7 @@ public class FileUtils {
                 csv.print(s);
             }
             csv.println();
-            for (Tweets te : list) {
+            for (Tweet te : list) {
                 csv.print(te.getId());
                 csv.print(te.getContent());
                 csv.print(te.getJson());
@@ -118,8 +120,8 @@ public class FileUtils {
         }
     }
 
-    public synchronized List<Tweets> readCSV(String path) {
-        List<Tweets> list = new ArrayList<>();
+    public synchronized List<Tweet> readCSV(String path) {
+        List<Tweet> list = new ArrayList<>();
         BufferedReader br = null;
         CSVParser csv = null;
         try {

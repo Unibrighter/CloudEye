@@ -41,6 +41,6 @@ public class TrainCorpus {
         }
 
         AbstractExternalizable.compileTo((Compilable) classify,
-                new File(Classifier.CLASSIFIER_PATH));
+                new File(SentimentClassifier.CLASSIFIER_PATH));
     }
 }
