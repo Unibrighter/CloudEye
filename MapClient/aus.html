@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style type="text/css">
+      html, body { height: 100%; margin: 0; padding: 0; }
+      #map { height: 100%; }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script type="text/javascript">
+
+var map;
+var citymap = {
+  c1: {
+    center: {lat: -38.105385902838094, lng: 145.41229248046875},
+    radius: 41842.84
+  },
+  c2: {
+    center: {lat: -37.49338360812416, lng: 145.2447509765625},
+    radius: 35405.48
+  },
+  c3: {
+    center: {lat: -37.652295930239426, lng: 144.4427490234375},
+    radius: 41201.90
+  },
+  c4: {
+    center: {lat: -37.80869897600677, lng: 144.964599609375},
+    radius: 9656.04
+  }
+};
+var rect = {
+  r1 :{
+    box: {north:-37.7218 ,south:-38.5181 ,east:145.7850, west:145.0435}
+  },
+  r2 :{
+    box: {north:-37.2161 ,south:-37.7316 ,east:145.6175, west:144.8857}
+  },
+   r3 :{
+    box: {north:-37.1504 ,south:-38.0200 ,east:144.8857, west:144.3238}
+  },
+   r4 :{
+    box: {north:-37.7316  ,south:-37.8932 ,east:145.0435, west:144.8857}
+  }
+};
+function initMap() {
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: -38.1054, lng: 145.4123},
+    zoom: 8
+  });
+
+  for (var city in citymap)
+  {
+    var cityCircle = new google.maps.Circle({
+
+    strokeColor: '#FF0000',
+    strokeOpacity: 0.8,
+    strokeWeight: 2,
+    fillColor: '#FF0000',
+    fillOpacity: 0.35,
+    map: map,
+    center:citymap[city].center,
+    radius:citymap[city].radius
+
+});
+  }
+
+   for(var rec in rect)
+  {
+      //alert("hi");
+      var rectangle = new google.maps.Rectangle({
+
+      strokeColor: '#2894FF',
+      strokeOpacity: 0.8,
+      strokeWeight: 2,
+      fillColor: '#D2E9FF',
+      fillOpacity: 0.35,
+      map: map,
+      bounds: rect[rec].box
+
+    });
+  }
+  
+}
+
+
+
+    </script>
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAuKHOLfFPtCE-C59W_W_PNfof03nkksA&callback=initMap&language=en">
+    </script>
+  </body>
+</html>
