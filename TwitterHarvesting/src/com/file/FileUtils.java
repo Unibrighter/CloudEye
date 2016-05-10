@@ -7,6 +7,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
@@ -247,12 +248,12 @@ public class FileUtils {
      * @param path
      * @return
      */
-    public Set<String> read(String path) {
+    public Set<String> read(InputStream in) {
         Set<String> words = new HashSet<>();
         BufferedReader br = null;
         try {
-            br = new BufferedReader(new InputStreamReader(
-                    new FileInputStream(path), FILE_FORMAT), buffedSize);
+            br = new BufferedReader(new InputStreamReader(in, FILE_FORMAT),
+                    buffedSize);
             String line = null;
             while ((line = br.readLine()) != null) {
                 words.add(line);

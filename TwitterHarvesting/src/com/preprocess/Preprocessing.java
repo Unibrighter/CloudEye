@@ -1,6 +1,5 @@
 package com.preprocess;
 
-import java.math.MathContext;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -11,14 +10,13 @@ import com.utils.UtilHelper;
 
 public class Preprocessing {
 
-    private static final String WORD_PATH = Preprocessing.class
-            .getResource("neutral_words.txt").getPath();
     public static final String EXACT_PATTERN = "\\b(%s)\\b";
     public static final String URL_PATTERN = "((https?|ftp|telnet|file|http):((//)|(\\\\))+[\\w\\d:#@%/;$()~_?\\+-=\\\\\\.&]*)";
     private static final String NEUTRAL_WORDS_PATTERN;
 
     static {
-        Set<String> words = FileUtils.getInstance().read(WORD_PATH);
+        Set<String> words = FileUtils.getInstance().read(
+                Preprocessing.class.getResourceAsStream("neutral_words.txt"));
         NEUTRAL_WORDS_PATTERN = UtilHelper
                 .getExactPattern(words.toArray(new String[words.size()]));
     }
