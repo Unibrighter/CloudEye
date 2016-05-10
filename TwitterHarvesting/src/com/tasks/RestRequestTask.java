@@ -5,6 +5,7 @@ import java.util.List;
 import com.base.BaseRunnable;
 import com.beans.Tweet;
 import com.file.FileUtils;
+import com.file.impl.CSVTweets;
 import com.resource.GeoResource;
 import com.search.impl.RestRequestImpl;
 
@@ -23,8 +24,8 @@ public class RestRequestTask extends BaseRunnable implements TimerListener {
         while (!stop) {
             List<Tweet> list = new RestRequestImpl(geo)
                     .search(RestRequestImpl.MAX_PER_SEARCH_COUNT);
-            //TODO pre-processing
-            FileUtils.getInstance().writeTweets(list,
+            // TODO pre-processing
+            FileUtils.getInstance().writeTweets(new CSVTweets(list),
                     FileUtils.FILE_REST_TWEETS_PATH);
         }
         return false;

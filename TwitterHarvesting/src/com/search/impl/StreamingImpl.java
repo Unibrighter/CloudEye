@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.beans.Tweet;
 import com.file.FileUtils;
+import com.file.impl.CSVTweets;
 import com.oath.OAthConfig;
 import com.resource.GeoResource;
 import com.resource.Resource;
@@ -48,8 +49,8 @@ public final class StreamingImpl extends AbstractSearch {
             public void onStatus(Status status) {
                 infos.add(UtilHelper.convertStatus(status));
                 if (infos.size() == cacheSize) {
-                    //TODO pre-processing
-                    FileUtils.getInstance().writeTweets(infos,
+                    // TODO pre-processing
+                    FileUtils.getInstance().writeTweets(new CSVTweets(infos),
                             FileUtils.FILE_TWEETS_PATH);
                     allSize += infos.size();
                     log.info("get tweets size: " + allSize);

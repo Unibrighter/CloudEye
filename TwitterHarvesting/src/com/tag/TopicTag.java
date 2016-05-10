@@ -1,5 +1,25 @@
 package com.tag;
 
 public enum TopicTag {
-    Sport, Car, Transport, Religion, Restaurant;
+    crime,
+
+    politic,
+
+    fitness,
+
+    tvshow,
+
+    asianfood,
+
+    ozfood,
+
+    chinesefood,
+
+    italianfood,
+
+    frenchfood,
+
+    immigration,
+
+    trump;
 }

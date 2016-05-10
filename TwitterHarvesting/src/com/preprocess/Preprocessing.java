@@ -1,10 +1,32 @@
 package com.preprocess;
 
+import java.math.MathContext;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.regex.PatternSyntaxException;
+
+import com.file.FileUtils;
+import com.utils.UtilHelper;
 
 public class Preprocessing {
-    
+
+    private static final String WORD_PATH = Preprocessing.class
+            .getResource("neutral_words.txt").getPath();
+    public static final String EXACT_PATTERN = "\\b(%s)\\b";
+    public static final String URL_PATTERN = "((https?|ftp|telnet|file|http):((//)|(\\\\))+[\\w\\d:#@%/;$()~_?\\+-=\\\\\\.&]*)";
+    private static final String NEUTRAL_WORDS_PATTERN;
+
+    static {
+        Set<String> words = FileUtils.getInstance().read(WORD_PATH);
+        NEUTRAL_WORDS_PATTERN = UtilHelper
+                .getExactPattern(words.toArray(new String[words.size()]));
+    }
+
+    public static String process(String text) {
+        return removeNeuWords(removeUrl(text));
+    }
+
     /**
      * Remove all neutral words.
      * 
@@ -12,10 +34,15 @@ public class Preprocessing {
      * @return
      */
     public static String removeNeuWords(String text) {
-        
-        return null;
+        Pattern pattern = Pattern.compile(NEUTRAL_WORDS_PATTERN,
+                Pattern.CASE_INSENSITIVE);
+        Matcher match = pattern.matcher(text);
+        while (match.find()) {
+            text = text.replaceAll(match.group(), "").trim();
+        }
+        return text;
     }
-    
+
     /**
      * Remove url from the string using regular expression
      * 
@@ -23,13 +50,18 @@ public class Preprocessing {
      * @return URL free text
      */
     public static String removeUrl(String text) {
-        String url = "((https?|ftp|telnet|file|http):((//)|(\\\\))+[\\w\\d:#@%/;$()~_?\\+-=\\\\\\.&]*)";
-        Pattern pattern = Pattern.compile(url, Pattern.CASE_INSENSITIVE);
+        Pattern pattern = Pattern.compile(URL_PATTERN,
+                Pattern.CASE_INSENSITIVE);
         Matcher match = pattern.matcher(text);
-        int i = 0;
         while (match.find()) {
-            text = text.replaceAll(match.group(i), "").trim();
-            i++;
+            try {
+                text = text.replaceAll(match.group(), "").trim();
+            }
+            catch (PatternSyntaxException e) {
+                String s = match.group().replace(")", "");
+                text = text.replaceAll(s, "").trim();
+                continue;
+            }
         }
 
         return removeHTMLChar(text);

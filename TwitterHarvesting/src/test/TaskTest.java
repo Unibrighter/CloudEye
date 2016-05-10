@@ -5,7 +5,7 @@ import java.util.List;
 import com.base.BaseRunnable;
 import com.beans.Tweet;
 import com.file.FileUtils;
-import com.resource.GeoResource;
+import com.file.impl.CSVTweets;
 import com.search.impl.RestRequestImpl;
 import com.tasks.RateWindowTimer;
 import com.tasks.TimerListener;
@@ -26,8 +26,8 @@ public class TaskTest extends BaseRunnable implements TimerListener {
             List<Tweet> list = new RestRequestImpl(userid)
                     .getTimeLineOnePage(RestRequestImpl.MAX_PER_PAGE_COUNT);
 
-            FileUtils.getInstance().writeTweets(list,
-                    "/Users/zhangyu/Desktop/testrate3.csv");
+            FileUtils.getInstance().writeTweets(new CSVTweets(list),
+                    "/Users/zhangyu/Desktop/testrate.csv");
         }
         return false;
     }

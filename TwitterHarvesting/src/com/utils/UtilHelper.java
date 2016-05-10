@@ -5,6 +5,7 @@ import java.text.StringCharacterIterator;
 import java.util.Date;
 
 import com.beans.Tweet;
+import com.preprocess.Preprocessing;
 
 import twitter4j.Status;
 import twitter4j.TwitterObjectFactory;
@@ -15,6 +16,19 @@ public class UtilHelper {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         return dateFormat.format(date);
 
+    }
+
+    public static String getExactPattern(final String[] words) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < words.length; i++) {
+            if (i == words.length - 1) {
+                sb.append(words[i]);
+            }
+            else {
+                sb.append(words[i] + "|");
+            }
+        }
+        return String.format(Preprocessing.EXACT_PATTERN, sb.toString());
     }
 
     public static String toString(Object o) {
