@@ -4,13 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.beans.Tweet;
-import com.file.FileUtils;
-import com.file.impl.CSVTweets;
 import com.oath.OAthConfig;
 import com.resource.GeoResource;
 import com.resource.Resource;
 import com.search.AbstractSearch;
 import com.search.BaseStatusListener;
+import com.tasks.CouchDBTask;
 import com.utils.UtilHelper;
 
 import twitter4j.FilterQuery;
@@ -22,6 +21,7 @@ public final class StreamingImpl extends AbstractSearch {
 
     private static final int MAX_FILE_SIZE = 10;
     private volatile int allSize = 0;
+    private CouchDBTask dbTask = new CouchDBTask();
 
     public StreamingImpl(GeoResource geo) {
         super(geo);
@@ -49,9 +49,7 @@ public final class StreamingImpl extends AbstractSearch {
             public void onStatus(Status status) {
                 infos.add(UtilHelper.convertStatus(status));
                 if (infos.size() == cacheSize) {
-                    // TODO pre-processing
-                    FileUtils.getInstance().writeTweets(new CSVTweets(infos),
-                            FileUtils.FILE_TWEETS_PATH);
+                    dbTask.insert(UtilHelper.commitTag(infos));
                     allSize += infos.size();
                     log.info("get tweets size: " + allSize);
                     infos.clear();

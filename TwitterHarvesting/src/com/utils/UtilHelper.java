@@ -2,9 +2,13 @@ package com.utils;
 
 import java.text.SimpleDateFormat;
 import java.text.StringCharacterIterator;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+import com.beans.JsonTweet;
 import com.beans.Tweet;
+import com.google.gson.JsonObject;
 import com.preprocess.Preprocessing;
 
 import twitter4j.Status;
@@ -16,6 +20,14 @@ public class UtilHelper {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         return dateFormat.format(date);
 
+    }
+    
+    public static List<JsonObject> commitTag(List<Tweet> list) {
+        List<JsonObject> jsons = new ArrayList<>();
+        for (Tweet tw : list) {
+            jsons.add(JsonTweet.build(tw.preprocessing()));
+        }
+        return jsons;
     }
 
     public static String getExactPattern(final String[] words) {
