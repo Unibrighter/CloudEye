@@ -39,7 +39,6 @@ public class TrainCorpus {
                 ((ObjectHandler) classify).handle(classified);
             }
         }
-
         // This classifier file should be trained before importing into the
         // project.
         AbstractExternalizable

@@ -33,7 +33,6 @@ public class SentimentClassifier {
         try {
             classify = (LMClassifier) AbstractExternalizable.readResourceObject(
                     SentimentClassifier.class, FileUtils.FILE_CLASSIFIER);
-
             categories = classify.categories();
         }
         catch (ClassNotFoundException e) {
