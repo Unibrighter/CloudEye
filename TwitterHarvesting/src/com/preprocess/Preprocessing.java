@@ -61,7 +61,6 @@ public class Preprocessing {
                 continue;
             }
         }
-
         return removeHTMLChar(text);
     }
 
