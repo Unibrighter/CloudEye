@@ -6,6 +6,13 @@ import com.beans.JsonTweet;
 import com.beans.Tag;
 import com.file.CSVWriteLIstener;
 
+/**
+ * 
+ * @author Team 2 CloudEye
+ * 
+ *         COMP90024
+ *
+ */
 public class CSVTags implements CSVWriteLIstener<Tag> {
 
     private List<Tag> list;

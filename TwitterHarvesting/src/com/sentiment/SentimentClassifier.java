@@ -11,7 +11,10 @@ import com.tag.SentimentTag;
 /**
  * The accuracy of sentiment analysis is 75% approximately. It can also handle
  * the emoji classification.
- *
+ * 
+ * @author Team 2 CloudEye
+ * 
+ *         COMP90024
  */
 public class SentimentClassifier {
 

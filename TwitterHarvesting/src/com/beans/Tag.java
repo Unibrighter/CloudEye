@@ -5,6 +5,13 @@ import com.tag.AreaTag;
 
 import twitter4j.GeoLocation;
 
+/**
+ * 
+ * @author Team 2 CloudEye
+ * 
+ *         COMP90024
+ *
+ */
 public class Tag {
 
     private long id;

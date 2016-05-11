@@ -1,5 +1,12 @@
 package com.resource;
 
+/**
+ * 
+ * @author Team 2 CloudEye
+ * 
+ *         COMP90024
+ *
+ */
 public enum GeoType {
     Inner_Rct("search for the Inner of the melbourne as a rectangle"),
 

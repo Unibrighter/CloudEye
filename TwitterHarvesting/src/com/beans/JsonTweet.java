@@ -2,6 +2,13 @@ package com.beans;
 
 import com.google.gson.JsonObject;
 
+/**
+ * 
+ * @author Team 2 CloudEye
+ * 
+ *         COMP90024
+ *
+ */
 public class JsonTweet {
 
     public static final String ID = "_id";

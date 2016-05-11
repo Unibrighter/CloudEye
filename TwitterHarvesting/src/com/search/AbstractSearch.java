@@ -8,6 +8,13 @@ import com.utils.log.Log;
 
 import twitter4j.TwitterException;
 
+/**
+ * 
+ * @author Team 2 CloudEye
+ * 
+ *         COMP90024
+ *
+ */
 public abstract class AbstractSearch {
 
     public static final int MAX_COUNT = Integer.MAX_VALUE;

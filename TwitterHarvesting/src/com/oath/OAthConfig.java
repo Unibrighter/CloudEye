@@ -8,6 +8,13 @@ import com.resource.GeoType;
 import twitter4j.conf.Configuration;
 import twitter4j.conf.ConfigurationBuilder;
 
+/**
+ * 
+ * @author Team 2 CloudEye
+ * 
+ *         COMP90024
+ *
+ */
 public class OAthConfig {
 
     private static final Map<GeoType, OAthInfo> map = new HashMap<>();

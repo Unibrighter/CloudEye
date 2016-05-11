@@ -17,6 +17,13 @@ import twitter4j.Status;
 import twitter4j.TwitterStream;
 import twitter4j.TwitterStreamFactory;
 
+/**
+ * 
+ * @author Team 2 CloudEye
+ * 
+ *         COMP90024
+ *
+ */
 public final class StreamingImpl extends AbstractSearch {
 
     private static final int MAX_FILE_SIZE = 10;

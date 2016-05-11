@@ -1,5 +1,12 @@
 package com.oath;
 
+/**
+ * 
+ * @author Team 2 CloudEye
+ * 
+ *         COMP90024
+ *
+ */
 public class OAthInfo {
 
     private final String consumerSecret;

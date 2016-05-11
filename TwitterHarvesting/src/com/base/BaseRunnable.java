@@ -4,6 +4,13 @@ import java.util.concurrent.LinkedBlockingQueue;
 
 import com.utils.log.Log;
 
+/**
+ * 
+ * @author Team 2 CloudEye
+ * 
+ *         COMP90024
+ *
+ */
 public abstract class BaseRunnable implements Runnable {
 
     protected static final Log log = Log.getInstance();

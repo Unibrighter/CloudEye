@@ -14,6 +14,13 @@ import com.preprocess.Preprocessing;
 import twitter4j.Status;
 import twitter4j.TwitterObjectFactory;
 
+/**
+ * 
+ * @author Team 2 CloudEye
+ * 
+ *         COMP90024
+ *
+ */
 public class UtilHelper {
 
     public static String dateFormat(Date date) {

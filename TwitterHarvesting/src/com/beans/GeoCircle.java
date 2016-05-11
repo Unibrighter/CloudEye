@@ -1,5 +1,12 @@
 package com.beans;
 
+/**
+ * 
+ * @author Team 2 CloudEye
+ * 
+ *         COMP90024
+ *
+ */
 public class GeoCircle {
 
     private double latitude;

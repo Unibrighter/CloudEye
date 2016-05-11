@@ -13,6 +13,13 @@ import com.aliasi.util.Compilable;
 import com.aliasi.util.Files;
 import com.file.FileUtils;
 
+/**
+ * 
+ * @author Team 2 CloudEye
+ * 
+ *         COMP90024
+ *
+ */
 public class TrainCorpus {
 
     @SuppressWarnings({ "rawtypes", "unchecked" })

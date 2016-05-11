@@ -7,6 +7,13 @@ import com.file.FileUtils;
 
 import twitter4j.Logger;
 
+/**
+ * 
+ * @author Team 2 CloudEye
+ * 
+ *         COMP90024
+ *
+ */
 public final class Log {
 
     private static Log logInstance = null;

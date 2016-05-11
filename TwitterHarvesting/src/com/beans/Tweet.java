@@ -8,6 +8,13 @@ import com.utils.UtilHelper;
 import twitter4j.GeoLocation;
 import twitter4j.Place;
 
+/**
+ * 
+ * @author Team 2 CloudEye
+ * 
+ *         COMP90024
+ *
+ */
 public final class Tweet {
 
     private static final String FORMAT_OUTPUT = "{location: %s} {geo: %s} {place: %s} {id: %d} {text: %s} "

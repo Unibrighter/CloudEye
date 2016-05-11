@@ -6,6 +6,13 @@ import java.util.Map;
 import com.beans.GeoCircle;
 import com.oath.OAthConfig;
 
+/**
+ * 
+ * @author Team 2 CloudEye
+ * 
+ *         COMP90024
+ *
+ */
 public class Resource {
 
     private static final Map<GeoType, GeoResource> areaMap = new HashMap<>();

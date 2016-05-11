@@ -2,6 +2,13 @@ package com.resource;
 
 import com.beans.GeoCircle;
 
+/**
+ * 
+ * @author Team 2 CloudEye
+ * 
+ *         COMP90024
+ *
+ */
 public class GeoResource {
 
     private double[][] area;

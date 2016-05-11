@@ -11,6 +11,13 @@ import com.base.BaseRunnable;
 import com.google.gson.JsonObject;
 import com.utils.log.Log;
 
+/**
+ * 
+ * @author Team 2 CloudEye
+ * 
+ *         COMP90024
+ *
+ */
 public class CouchDBTask extends BaseRunnable {
 
     private static final Log log = Log.getInstance();

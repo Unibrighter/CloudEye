@@ -12,6 +12,15 @@ import com.tasks.RestRequestTask;
 import com.tasks.StreamingTask;
 import com.utils.log.Log;
 
+/**
+ * Twitter harvester is designed for sentiment statistics of special scenarios
+ * in Melbourne
+ * 
+ * @author Team 2 CloudEye
+ * 
+ *         COMP90024
+ *
+ */
 public class MainDriver {
 
     private static final Log log = Log.getInstance();
@@ -37,7 +46,7 @@ public class MainDriver {
             log.error("CommandLine parser exception, stop system.");
             System.exit(-1);
         }
-        
+
         int applicationNum = 0;
         if (cmd.hasOption("ap")) {
             try {
@@ -49,7 +58,7 @@ public class MainDriver {
                 System.exit(-1);
             }
         }
-        
+
         if (applicationNum >= 1 && applicationNum <= 8) {
             // choose one of the OAthInfo for initializing the system.
             OAthConfig.setApplicationNum(applicationNum);
@@ -79,5 +88,5 @@ public class MainDriver {
                 break;
         }
     }
-    
+
 }

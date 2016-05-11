@@ -6,6 +6,13 @@ import com.beans.Tweet;
 import com.file.CSVWriteLIstener;
 import com.file.FileUtils;
 
+/**
+ * 
+ * @author Team 2 CloudEye
+ * 
+ *         COMP90024
+ *
+ */
 public class CSVTweets implements CSVWriteLIstener<Tweet> {
 
     private List<Tweet> list;

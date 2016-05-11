@@ -8,6 +8,13 @@ import java.util.regex.PatternSyntaxException;
 import com.file.FileUtils;
 import com.utils.UtilHelper;
 
+/**
+ * 
+ * @author Team 2 CloudEye
+ * 
+ *         COMP90024
+ *
+ */
 public class Preprocessing {
 
     public static final String EXACT_PATTERN = "\\b(%s)\\b";

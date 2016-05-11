@@ -7,6 +7,13 @@ import com.file.FileUtils;
 import com.google.gson.JsonObject;
 import com.tasks.CouchDBTask;
 
+/**
+ * 
+ * @author Team 2 CloudEye
+ * 
+ *         COMP90024
+ *
+ */
 public class TagInsertDirver {
 
     private static CouchDBTask dbTask = new CouchDBTask();

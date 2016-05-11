@@ -3,6 +3,13 @@ package com.tasks;
 import com.base.BaseRunnable;
 import com.search.impl.RestRequestImpl;
 
+/**
+ * 
+ * @author Team 2 CloudEye
+ * 
+ *         COMP90024
+ *
+ */
 public class RateWindowTimer extends BaseRunnable {
 
     private static RateWindowTimer timer;

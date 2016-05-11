@@ -10,6 +10,13 @@ import com.file.FileUtils;
 import com.file.impl.CSVTags;
 import com.oath.OAthConfig;
 
+/**
+ * 
+ * @author Team 2 CloudEye
+ * 
+ *         COMP90024
+ *
+ */
 public class CSVConvert {
 
     private static final String tagPath = "/Users/zhangyu/Desktop/TAG_Tweets.csv";

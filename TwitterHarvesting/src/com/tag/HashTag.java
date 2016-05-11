@@ -5,6 +5,13 @@ import java.util.HashMap;
 import com.resource.Resource;
 import com.utils.UtilHelper;
 
+/**
+ * 
+ * @author Team 2 CloudEye
+ * 
+ *         COMP90024
+ *
+ */
 public class HashTag {
 
     private static final HashMap<TopicTag, String> topicMap = new HashMap<>();

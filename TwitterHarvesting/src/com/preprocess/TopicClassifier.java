@@ -10,6 +10,13 @@ import com.tag.AreaTag;
 import com.tag.HashTag;
 import com.tag.TopicTag;
 
+/**
+ * 
+ * @author Team 2 CloudEye
+ * 
+ *         COMP90024
+ *
+ */
 public class TopicClassifier {
 
     private Tag tagTweet;

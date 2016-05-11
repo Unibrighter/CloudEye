@@ -6,6 +6,13 @@ import twitter4j.StallWarning;
 import twitter4j.StatusDeletionNotice;
 import twitter4j.StatusListener;
 
+/**
+ * 
+ * @author Team 2 CloudEye
+ * 
+ *         COMP90024
+ *
+ */
 public abstract class BaseStatusListener implements StatusListener {
 
     private static final Log log = Log.getInstance();

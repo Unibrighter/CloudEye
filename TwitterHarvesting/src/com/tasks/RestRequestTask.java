@@ -8,6 +8,13 @@ import com.resource.GeoResource;
 import com.search.impl.RestRequestImpl;
 import com.utils.UtilHelper;
 
+/**
+ * 
+ * @author Team 2 CloudEye
+ * 
+ *         COMP90024
+ *
+ */
 public class RestRequestTask extends BaseRunnable implements TimerListener {
 
     private GeoResource geo;

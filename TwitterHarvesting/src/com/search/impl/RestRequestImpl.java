@@ -21,6 +21,13 @@ import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
 
+/**
+ * 
+ * @author Team 2 CloudEye
+ * 
+ *         COMP90024
+ *
+ */
 public final class RestRequestImpl extends AbstractSearch {
 
     public static final long MAX_WINDOW_TIME = 16 * 60 * 1000;

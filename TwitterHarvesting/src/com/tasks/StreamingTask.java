@@ -5,6 +5,13 @@ import com.resource.GeoResource;
 import com.search.AbstractSearch;
 import com.search.impl.StreamingImpl;
 
+/**
+ * 
+ * @author Team 2 CloudEye
+ * 
+ *         COMP90024
+ *
+ */
 public class StreamingTask extends BaseRunnable {
 
     private GeoResource geo;
