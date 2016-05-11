@@ -1,0 +1,46 @@
+#Created by COMP90024 Assignment 2 CCC Team 2, Semester 1 2016
+#Playhood that desploy the db server, twitter harvesting
+
+- hosts: webservers:dbservers
+  tasks: 
+   - name: Install git
+     sudo: yes
+     apt: pkg=git state=installed update_cache=true
+     
+   - name: Install jre
+     sudo: yes
+     apt: pkg=default-jre state=installed update_cache=true
+     
+   - name: Install jdk
+     sudo: yes
+     apt: pkg=default-jdk state=installed update_cache=true
+     
+   - name: Install pip
+     sudo: yes
+     easy_install: name=pip
+       
+   - name: install the latest version of couchdb
+     sudo: yes
+     yum: name=couchdb state=latest
+   
+   - name: couchdb service
+     sudo: yes
+     service: name=couchdb state=started enabled=yes
+     
+   - name: Add JRE ppa
+     sudo: yes
+     apt_repository: repo=ppa:webupd8team/java state=present
+
+   - name: Automatically select the Oracle License
+     shell: echo debconf shared/accepted-oracle-license-v1-1 select true | sudo debconf-set-selections
+
+   - name: Install JRE
+     sudo: yes
+     apt: pkg=oracle-java7-installer state=latest update-cache=yes force=yes
+    
+   - name: Clone git repository
+     sudo: yes
+     git: repo=git@github.com:zhangy10/ccc_team_2.git dest=/home/ubuntu/ccc_team_2 clone=yes update=no accept_hostkey=yes key_file=/home/ubuntu/.ssh/github_key
+
+
+     
