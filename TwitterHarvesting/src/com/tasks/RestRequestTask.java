@@ -40,7 +40,7 @@ public class RestRequestTask extends BaseRunnable implements TimerListener {
     public void reloadRequest() {
         if (stop) {
             log.debug("restart a RestRequestTask");
-            new RestRequestImpl(geo);
+            new RestRequestTask(geo);
         }
     }
 
