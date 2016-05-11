@@ -1,3 +1,4 @@
+#Created by COMP90024 Assignment 2 CCC Team 2, Semester 1 2016
 #!/bin/bash
 # setup environment
 sudo apt-get update
