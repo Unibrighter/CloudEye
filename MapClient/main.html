@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+	<head>
+
+		<title>Map test</title>
+		<link href="css/main.css" rel="stylesheet" type="text/css" /> 
+		<script type="text/javascript" src="script/data_interface.js"></script>
+		<script type="text/javascript" src="script/jquery-1.3.1.js"></script>
+		<script type="text/javascript" src="script/script.js"></script>	
+	</head>
+
+	<body>
+		<div id="header">
+			<!--<img src="pictures/demo2.png" id="title"></img>-->
+
+			<div id="navigator">
+				<a href="javascript:linkClick(7)" class="nav">Home</a>
+				<a href="javascript:linkClick(0)" class="nav">Crime</a>
+				<a href="javascript:linkClick(1)" class="nav">Politics</a>
+				<a href="javascript:linkClick(2)" class="nav">Fitness</a>
+				<a href="javascript:linkClick(3)" class="nav">TV Show</a>
+				<a href="javascript:linkClick(4)" class="nav">Food</a>
+				<a href="javascript:getCountry(0)" class="nav">Immigration</a>
+				<!--<a href="javascript:linkClick(6)" class="nav">Trump</a>-->
+			</div>
+		</div>
+
+		<div id="left">
+			<div id ="left_top">
+
+				<div id= "groupInfo" class="nav_child">
+					<p style="color: white">Team 2 (Melbourne):</p>
+					<p>Yu Zhang (671205)</p>
+					<p>Kunliang Wu (684226)</p>
+					<p>Yuge Liang (713706)</p>
+					<p>Xutong Liu (671167)</p>
+					<p>Xiaoyu Zhang (712379)</p>
+				</div>
+				<!--<div id="fitness_child" class="nav_child" style="display:none">
+					<a href="javascript:linkClick(0)">Green Space</a>
+					<a href="javascript:linkClick(0)">Statistic result</a>
+				</div>-->
+				<div id="immigration_child" class="nav_child" style="display:none">
+					<a href="javascript:getCountry(0)">Indian</a>
+					<a href="javascript:getCountry(1)">Chinese</a>
+					<a href="javascript:getCountry(2)">Italian</a>
+					<a href="javascript:getCountry(3)">Vietnam</a>
+				</div>
+				<div id="crime_child" class="nav_child" style="display:none">
+					<a href="#">Income</a>
+				</div>
+			</div>
+
+			<div id="left_bottom">
+				<img src="pictures/income1.png" class="legend" style="display:none" id="income_legend"></img>
+				<img src="pictures/indian1.png" class="legend" style="display:none" id="indian_legend"></img>
+				<img src="pictures/China1.png" class="legend" style="display:none" id="chinese_legend"></img>
+				<img src="pictures/italian1.png" class="legend" style="display:none" id="italian_legend"></img>
+				<img src="pictures/Vietnam1.png" class="legend" style="display:none" id="vietnam_legend"></img>
+				<img src="pictures/legend_food.png" class="legend" style="display:none" id="food_legend"></img>
+				<img src="pictures/legend_pos_neg.png" class="legend" style="display:none" id="legend_pos_neg"></img>
+			</div>
+			
+		</div>
+
+		<div id ="map">
+			<iframe id="frame" frameborder="0" src="aus.html" ></iframe>
+		</div>
+	</body>
+</html>
