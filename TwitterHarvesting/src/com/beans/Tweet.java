@@ -2,9 +2,7 @@ package com.beans;
 
 import java.util.Date;
 
-import com.tag.AreaTag;
-import com.tag.SentimentTag;
-import com.tag.TopicTag;
+import com.preprocess.Preprocessing;
 import com.utils.UtilHelper;
 
 import twitter4j.GeoLocation;
@@ -120,5 +118,13 @@ public final class Tweet {
     public String toString() {
         return String.format(FORMAT_OUTPUT, location, UtilHelper.toString(geo),
                 UtilHelper.toString(place), id, content, date, lang, userID);
+    }
+
+    public Tag preprocessing() {
+        // convert from a tweet to a tagged tweet.
+        return new Tag().setId(getId())
+                .setContent(Preprocessing.process(getContent()))
+                .setOriginalContext(getContent()).setDate(getDate())
+                .setGeo(getGeo()).setLocation(getLocation()).classifyTopic();
     }
 }

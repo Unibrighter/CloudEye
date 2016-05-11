@@ -11,16 +11,41 @@ public class Resource {
     private static final Map<GeoType, GeoResource> areaMap = new HashMap<>();
 
     /* Topic key words */
-    public final static String[] DIET = { "diet", "hunger", "hunger control",
-            "low carb", "reduce intake" };
-    public final static String[] EXERCISE = { "workout", "fitness", "exercise",
-            "HIIT", "running", "yoga", "jogging", "Nike+" };
-    public final static String[] PRODUCT = { "Nike", "Adidas", "Puma",
-            "New Balance", "Skechers" };
-    public final static String[] CAR = {};
-    public final static String[] RELIGION = {};
-    public final static String[] TRANSPORT = {};
-    public final static String[] CAFE = {};
+    public final static String[] crime = { "theft", "police", "suicide", "rape",
+            "security", "rob", "unsafe", "insecure", "steal", "thief", "robber",
+            "crime", "offence", "murder", "violent" };
+
+    public final static String[] politic = { "Abbott", "Malcolm Turnbull",
+            "law", "politics", "politic", "politician", "Liberal Party",
+            "Labor Party", "National Party", "council", "government" };
+
+    public final static String[] fitness = { "workout", "fitness", "exercise",
+            "HIIT", "running", "yoga", "jogging", "Nike+", "gym" };
+
+    public final static String[] tvshow = { "Neighbors", "Neighbors2" };
+
+    public final static String[] asianfood = { "Don", "Thai", "curry", "pho",
+            "noodle", "spring roll", "laska", "chin chin" };
+
+    public final static String[] ozfood = { "burger", "fish & chips",
+            "kangaroo fillet", "poached egg", "calamari", "chicken fillet",
+            "Lamingtons", "flat white", "vegemite", "pavlova", "cafe",
+            "fish chips" };
+
+    public final static String[] chinesefood = { "dumpling", "hotpot",
+            "dim sim", "chinese food", "long bao", "buns" };
+
+    public final static String[] italianfood = { "pizza", "spaghetti", "pasta",
+            "ricotta", "mozzarella", "gnocchi", "spanino" };
+
+    public final static String[] frenchfood = { "crepe", "creperie",
+            "French fries", "poivre", "L¡¯oignon", "boeuf", "tartare",
+            "Basquaise" };
+
+    public final static String[] immigration = { "PR", "visa", "immigration",
+            "SOL", "migration", "EOI", "ACS", "permanent resident" };
+
+    public final static String[] trump = { "Trump" };
 
     /* 4 main areas */
     public final static double[][] EAST = { { 145.0435, -38.5181 },

@@ -39,8 +39,12 @@ public class TrainCorpus {
                 ((ObjectHandler) classify).handle(classified);
             }
         }
-
-        AbstractExternalizable.compileTo((Compilable) classify,
-                new File(SentimentClassifier.CLASSIFIER_PATH));
+        // This classifier file should be trained before importing into the
+        // project.
+        AbstractExternalizable
+                .compileTo((Compilable) classify,
+                        new File(SentimentClassifier.class
+                                .getResource(FileUtils.FILE_CLASSIFIER)
+                                .getPath()));
     }
 }

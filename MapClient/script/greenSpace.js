@@ -8,6 +8,10 @@ function initMap()
     }
   	);
 
+
+// var result_json= XXXX_API("115.89.146.111:5984/XXXXX");
+// 根据result_json 解析并显示
+	
   var layer = new google.maps.FusionTablesLayer({
   		query:{
   			select:'geometry',

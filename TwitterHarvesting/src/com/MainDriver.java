@@ -37,6 +37,7 @@ public class MainDriver {
             log.error("CommandLine parser exception, stop system.");
             System.exit(-1);
         }
+        
         int applicationNum = 0;
         if (cmd.hasOption("ap")) {
             try {
@@ -48,7 +49,7 @@ public class MainDriver {
                 System.exit(-1);
             }
         }
-
+        
         if (applicationNum >= 1 && applicationNum <= 8) {
             // choose one of the OAthInfo for initializing the system.
             OAthConfig.setApplicationNum(applicationNum);
@@ -78,4 +79,5 @@ public class MainDriver {
                 break;
         }
     }
+    
 }

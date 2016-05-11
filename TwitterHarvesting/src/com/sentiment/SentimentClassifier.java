@@ -1,6 +1,5 @@
 package com.sentiment;
 
-import java.io.File;
 import java.io.IOException;
 
 import com.aliasi.classify.LMClassifier;
@@ -19,8 +18,6 @@ public class SentimentClassifier {
     private String[] categories;
     @SuppressWarnings("rawtypes")
     private LMClassifier classify;
-    public static final String CLASSIFIER_PATH = SentimentClassifier.class
-            .getResource(FileUtils.FILE_CLASSIFIER).getPath();
 
     private static SentimentClassifier instance;
 
@@ -34,8 +31,8 @@ public class SentimentClassifier {
     @SuppressWarnings("rawtypes")
     public SentimentClassifier() {
         try {
-            classify = (LMClassifier) AbstractExternalizable
-                    .readObject(new File(CLASSIFIER_PATH));
+            classify = (LMClassifier) AbstractExternalizable.readResourceObject(
+                    SentimentClassifier.class, FileUtils.FILE_CLASSIFIER);
             categories = classify.categories();
         }
         catch (ClassNotFoundException e) {
