@@ -1,3 +1,9 @@
 # CloudEye-Twitter Harvesting
 Assignment 2 for Cluster  and Cloud Computing - Tweet Analysis with Aurin Data
 
+      Team 2 - CloudEye
+Yu Zhang      671205  zhangy10
+Kunliang Wu   684226  kunliangw
+Yuge Liang    713706  yugel1
+Xutong Liu    671167  xutongl
+Xiaoyu Zhang  712379  xiaoyuz2
