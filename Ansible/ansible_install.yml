@@ -26,17 +26,6 @@
    - name: couchdb service
      sudo: yes
      service: name=couchdb state=started enabled=yes
-     
-   - name: Add JRE ppa
-     sudo: yes
-     apt_repository: repo=ppa:webupd8team/java state=present
-
-   - name: Automatically select the Oracle License
-     shell: echo debconf shared/accepted-oracle-license-v1-1 select true | sudo debconf-set-selections
-
-   - name: Install JRE
-     sudo: yes
-     apt: pkg=oracle-java7-installer state=latest update-cache=yes force=yes
     
    - name: Clone git repository
      sudo: yes
