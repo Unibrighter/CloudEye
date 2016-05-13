@@ -47,25 +47,32 @@ public final class StreamingImpl extends AbstractSearch {
             String[] lang) {
         final TwitterStream twitterStream = new TwitterStreamFactory(
                 OAthConfig.getConfig(true)).getInstance();
-        final List<Tweet> infos = new ArrayList<Tweet>();
+        final List<Tweet> cacheStatus = new ArrayList<Tweet>();
         final int cacheSize = Math.min(count, MAX_FILE_SIZE);
         final int maxSize = Math.min(count, MAX_COUNT);
         twitterStream.addListener(new BaseStatusListener() {
 
             @Override
             public void onStatus(Status status) {
-                infos.add(UtilHelper.convertStatus(status));
-                if (infos.size() == cacheSize) {
-                    dbTask.insert(UtilHelper.commitTag(infos));
-                    allSize += infos.size();
-                    log.info("get tweets size: " + allSize);
-                    infos.clear();
-                }
+                // New plan is to make it as a real-time display.
+                dbTask.insert(UtilHelper.commitSingle(status));
+                log.info("has got tweet size: " + (++allSize) + " content: "
+                        + status.getText());
+
+                // Old plan is to cache a number of statuses and put them into
+                // db once.
+                // cacheStatus.add(UtilHelper.convertStatus(status));
+                // if (cacheStatus.size() == cacheSize) {
+                // dbTask.insert(UtilHelper.commitTag(cacheStatus));
+                // allSize += cacheStatus.size();
+                // log.info("get tweets size: " + allSize);
+                // cacheStatus.clear();
+                // }
 
                 if (allSize >= maxSize) {
                     twitterStream.shutdown();
-                    synchronized (infos) {
-                        infos.notify();
+                    synchronized (cacheStatus) {
+                        cacheStatus.notify();
                     }
                 }
             }
@@ -74,14 +81,14 @@ public final class StreamingImpl extends AbstractSearch {
         query.locations(geo.getArea());
         query.language(lang);
         twitterStream.filter(query);
-        synchronized (infos) {
+        synchronized (cacheStatus) {
             try {
-                infos.wait();
+                cacheStatus.wait();
             }
             catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
-        return infos;
+        return cacheStatus;
     }
 }

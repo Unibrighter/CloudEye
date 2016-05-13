@@ -28,7 +28,13 @@ public class UtilHelper {
         return dateFormat.format(date);
 
     }
-    
+
+    public static List<JsonObject> commitSingle(Status status) {
+        List<JsonObject> jsons = new ArrayList<>();
+        jsons.add(JsonTweet.build(convertStatus(status).preprocessing()));
+        return jsons;
+    }
+
     public static List<JsonObject> commitTag(List<Tweet> list) {
         List<JsonObject> jsons = new ArrayList<>();
         for (Tweet tw : list) {
