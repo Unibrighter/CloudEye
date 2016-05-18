@@ -28,7 +28,8 @@ function initMap()
   	layer.setMap(map);
 
     setInterval(function(){ 
-       var coordinates = getTweetsLocation();
+       var c = getRawCollectionAsArray();
+       var coordinates = getTweetsLocation(c);
     for (var co in coordinates)
     {
       var lat = coordinates[co].latitude;
@@ -43,16 +44,16 @@ function initMap()
     }
     //alert("hi");
 
-    }, 2000);
+    }, 3000);
     
    
 }
 
-function getTweetsLocation()
+function getTweetsLocation(c)
 {
   
   //var collection = getRawCollectionAsArray();
-  var topic = filterTopic(collection,"Topic_Fitness");
+  var topic = filterTopic(c,"Topic_Fitness");
   var coordinate = compactResultArray(topic);
 
   return coordinate;
