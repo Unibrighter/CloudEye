@@ -26,8 +26,9 @@ function initMap()
   	});
 
   	layer.setMap(map);
-    
-    var coordinates = getTweetsLocation();
+
+    setInterval(function(){ 
+       var coordinates = getTweetsLocation();
     for (var co in coordinates)
     {
       var lat = coordinates[co].latitude;
@@ -40,6 +41,11 @@ function initMap()
       });
 
     }
+    //alert("hi");
+
+    }, 2000);
+    
+   
 }
 
 function getTweetsLocation()
