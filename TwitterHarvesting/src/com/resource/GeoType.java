@@ -8,6 +8,7 @@ package com.resource;
  *
  */
 public enum GeoType {
+
     Inner_Rct("search for the Inner of the melbourne as a rectangle"),
 
     East_Rct("search for the East of the melbourne as a rectangle"),

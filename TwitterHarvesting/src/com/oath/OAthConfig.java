@@ -99,6 +99,10 @@ public class OAthConfig {
     public static void setApplicationNum(int applicationNum) {
         OAthConfig.geoType = initalMap.get(applicationNum);
     }
+    
+    public static GeoType verify(int applicationNum) {
+        return initalMap.get(applicationNum);
+    }
 
     public static GeoType getGeoType() {
         return geoType;

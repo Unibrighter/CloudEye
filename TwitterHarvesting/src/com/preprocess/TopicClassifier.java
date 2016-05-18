@@ -48,8 +48,9 @@ public class TopicClassifier {
             case North_Cir:
             case North_Rct:
                 return classify(AreaTag.north);
+            default:
+                return classify(AreaTag.melbourne);
         }
-        return classify(AreaTag.melbourne);
     }
 
     public Tag classify(AreaTag areaTag) {

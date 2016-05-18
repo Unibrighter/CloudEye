@@ -33,7 +33,7 @@ public class MainDriver {
 
     public static void main(String[] args) {
         init(args);
-        searchTweets(OAthConfig.getGeoType());
+        searchTweets();
     }
 
     public static void init(String[] args) {
@@ -59,7 +59,7 @@ public class MainDriver {
             }
         }
 
-        if (applicationNum >= 1 && applicationNum <= 8) {
+        if (OAthConfig.verify(applicationNum) != null) {
             // choose one of the OAthInfo for initializing the system.
             OAthConfig.setApplicationNum(applicationNum);
         }
@@ -70,7 +70,8 @@ public class MainDriver {
         }
     }
 
-    public static void searchTweets(GeoType geoType) {
+    public static void searchTweets() {
+        GeoType geoType = OAthConfig.getGeoType();
         switch (geoType) {
             case Inner_Rct:
             case East_Rct:
