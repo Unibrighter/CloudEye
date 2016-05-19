@@ -44,7 +44,7 @@ function initMap()
     }
     //alert("hi");
 
-    }, 3000);
+    }, 4000);
     
    
 }

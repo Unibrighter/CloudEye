@@ -29,6 +29,7 @@ $(document).ready(function(){
 
 		}else if(value == "Food")
 		{
+			$("#food_child").show();
 			$("#food_legend").show();
 		}else if(value == "Immigration")
 		{
@@ -74,4 +75,13 @@ function getCountry(n)
 	var urls=["Indian.html","China.html","Italian.html","Vietnam.html"];
 	var frame=document.getElementById("frame");
 	frame.src=urls[n];
+}
+
+function getChart(n)
+{
+	var urls = ["photo.html","crime_chart.html","food_bar.html","food_pie.html","imm_chart.html"];
+	var frame =document.getElementById("frame");
+	var url = "charts/"+urls[n];
+	frame.src = url;
+
 }
